@@ -1,0 +1,23 @@
+class node:
+    def __init__ (self,val):
+        self.val=val
+        self.next=None
+class Linkedlist:
+    def __init__ (self):
+        self.head=None    
+    def show(self):
+        t=self.head
+       
+        while t:
+            print(t.val,end="->")
+            t=t.next
+            ch=input("enter ok")
+            if ch=="ok":
+                break
+           
+           
+obj=Linkedlist()
+obj.head=node(1)
+obj.head.next=node(2)
+obj.head.next.next=node(3)
+obj.head.next.next.next=node(4)
