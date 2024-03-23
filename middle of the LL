@@ -1,0 +1,37 @@
+class node:
+    def __init__ (self,val):
+        self.val=val
+        self.next=None
+class Linkedlist:
+    def __init__ (self):
+        self.head=None
+    def reorder(self,head):
+        if not head or not head.next:
+            return head
+        #1 find the middle of the linkedlist
+        slow=head
+        fast=head.next
+        while fast and fast.next:
+            slow=slow.next
+            fast=fast.next.next
+        #2 split the list into two halves
+        second_half=slow.next
+        slow.next=None#end of the first linked list]
+        #3 Reverse the second list
+        prev=None
+        while second_half:
+            temp=second_half.next
+            second_half.next=prev
+            prev=second_half
+            second_half=temp
+        #4 Merge the first and reversed second half
+           
+        first_half=head
+        while prev:
+            temp1=first_half.next
+            temp2=prev.next
+            first_half.next=prev
+            prev.next=temp1
+            first_half=temp1
+            prev=temp2
+        return head
